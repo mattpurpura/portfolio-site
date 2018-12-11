@@ -6,6 +6,13 @@
     font-family: Impact, Charcoal, sans-serif;
     font-size: 30px;
     cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.subhead {
+    font-size: 21px;
+    margin-top: 15px;
+    margin-left: 20px;
 }
 
 .stack {
@@ -25,6 +32,11 @@
     border: solid 1px white;
     display: inline-block;
     margin: 10px
+ }
+
+ #resume {
+     margin-top: 5vh;
+     margin-left: 50vh
  }
 
  .description {

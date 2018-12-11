@@ -8,6 +8,8 @@ import Background from '../assets/images/black-smokey.png';
 import Agility from '../assets/images/agility-project-page.JPG';
 import Ascent from '../assets/images/ascent-chart.JPG';
 import Crypto from '../assets/images/crypto-tracker.JPG';
+import Resume from '../assets/images/Resume.JPG';
+
 import './landing.css';
 
 
@@ -17,15 +19,29 @@ class Landing extends Component {
         super(props)
         this.Project = React.createRef();
         this.About = React.createRef();
-        this.Contact = React.createRef();
-
+        this.Resume = React.createRef();
+        this.Agility = React.createRef();
+        this.Ascent = React.createRef();
+        this.Crypto = React.createRef();
     }
 
 
     handleScrollToElement = (name, event) => {
-        if (name==='Project'){
+        if (name==='Agility'){
             window.scrollTo({
-                top: this.Project.current.offsetTop, 
+                top: this.Agility.current.offsetTop, 
+                behavior: "smooth"
+            })
+        }
+        else if (name==='Ascent'){
+            window.scrollTo({
+                top: this.Ascent.current.offsetTop, 
+                behavior: "smooth"
+            })
+        }
+        else if (name==='Crypto'){
+            window.scrollTo({
+                top: this.Crypto.current.offsetTop, 
                 behavior: "smooth"
             })
         }
@@ -35,9 +51,9 @@ class Landing extends Component {
                 behavior: "smooth"
             })
         }
-        else if (name==='Contact'){
+        else if (name==='Resume'){
             window.scrollTo({
-                top: this.Contact.current.offsetTop, 
+                top: this.Resume.current.offsetTop, 
                 behavior: "smooth"
             })
         }
@@ -67,9 +83,12 @@ class Landing extends Component {
                         paddingLeft: 30, 
                         color: 'black'
                         }}>
-                        <h5 className='menuTab text' onClick={() => this.handleScrollToElement('About')}>About</h5>
+                        <h5 className='menuTab' onClick={() => this.handleScrollToElement('About')}>About</h5>
                         <h5 className='menuTab' onClick={() => this.handleScrollToElement('Project')}>Projects</h5>
-                        <h5 className='menuTab' onClick={() => this.handleScrollToElement('Contact')}>Contact</h5>
+                        <h5 className='menuTab subhead' onClick={() => this.handleScrollToElement('Agility')}>Agility</h5>
+                        <h5 className='menuTab subhead' onClick={() => this.handleScrollToElement('Ascent')}>Ascent</h5>
+                        <h5 className='menuTab subhead' onClick={() => this.handleScrollToElement('Crypto')}>Crypto Tracker</h5>
+                        <h5 className='menuTab' onClick={() => this.handleScrollToElement('Resume')}>Resume</h5>
                     </div>
                 </Grid>
             </Grid>
@@ -82,7 +101,7 @@ class Landing extends Component {
             </Grid> */}
             <Grid item>
                 <div ref={this.About} style={{
-                    height: 750, 
+                    height: '100vh', 
                     display: 'flex', 
                     justifyContent: 'center', 
                     alignItems: 'center'
@@ -100,7 +119,7 @@ class Landing extends Component {
                 <div style={{
                     height: 500,
                     backgroundColor: 'white'
-                }} id='project1' ref={this.Project}>
+                }} id='project1' ref={this.Agility}>
                     <Grid item>
                         <h1 class='text project-title'>Agility | Project Management</h1>
                     </Grid>
@@ -148,7 +167,7 @@ class Landing extends Component {
                 </div>
             </Grid>
             <Grid item container direction='column' style={{marginTop: 20}}>
-                <div id='project2' style={{
+                <div id='project2'  ref={this.Ascent} style={{
                     height: 500,
                     // backgroundColor: 'white'
                     color: 'white'
@@ -198,7 +217,7 @@ class Landing extends Component {
                 <div style={{
                     height: 500,
                     backgroundColor: 'white'
-                }} id='project1'>
+                }} id='project1'  ref={this.Crypto}>
                     <Grid item>
                         <h1 class='text project-title'>Crypto Tracker | Finance</h1>
                     </Grid>
@@ -240,10 +259,15 @@ class Landing extends Component {
                 </div>
             </Grid>
             <Grid item>
+                <div ref={this.Resume} style={{height: '100vh'}}>
+                    <img id='resume' src={`${Resume}`} style={{height: '90vh'}}/>
+                </div>
+            </Grid>
+            {/* <Grid item>
                 <div id='contact' style={{minHeight: 595, paddingTop: 150}} ref={this.Contact}>
                 <ContactForm/>
                 </div>
-            </Grid>
+            </Grid> */}
         </Grid>
     </Grid>
     </div>
